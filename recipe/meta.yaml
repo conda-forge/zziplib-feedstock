@@ -1,6 +1,6 @@
-{% set name = 'zziplib' %}
-{% set version = '0.13.69' %}
-{% set sha256 = '846246d7cdeee405d8d21e2922c6e97f55f24ecbe3b6dcf5778073a88f120544' %}
+{% set name = "zziplib" %}
+{% set version = "0.13.73" %}
+{% set sha256 = "2aa9d317f70060101064863e4e8fe698c32301e2d293d2b4964608cf2d5b2d8b" %}
 package:
   name: {{ name }}
   version: {{ version }}
@@ -14,7 +14,7 @@ source:
   - path: CMakeLists.txt  # [win]
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
