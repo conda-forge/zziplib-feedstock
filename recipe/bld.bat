@@ -7,6 +7,9 @@ cmake -G "Ninja" ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -D CMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -D CMAKE_VERBOSE_MAKEFILE=ON ^
+      -D ZZIPTEST=OFF ^
+      -D MSVC_STATIC_RUNTIME=OFF ^
+      -DZZIPDOCS=OFF ^
       ..
       
 if errorlevel 1 exit 1

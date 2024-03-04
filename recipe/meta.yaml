@@ -9,7 +9,6 @@ source:
   url: https://github.com/gdraheim/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 319093aa98d39453f3ea2486a86d8a2fab2d5632f6633a2665318723a908eecf
 
-
 build:
   number: 0
   run_exports:
@@ -33,7 +32,6 @@ test:
     - if NOT exist %LIBRARY_LIB%/zziplib.lib exit 1  # [win]
     - if NOT exist %LIBRARY_BIN%/zziplib.dll exit 1  # [win]
     - if NOT exist %LIBRARY_INC%/zzip/zzip.h exit 1  # [win]
-
 
 about:
   home: http://zziplib.sourceforge.net/
