@@ -14,7 +14,7 @@ source:
   - path: CMakeLists.txt  # [win]
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -30,8 +30,6 @@ requirements:
     - make
   host:
     - zlib
-  run:
-    - zlib
 
 test:
   commands:
@@ -45,11 +43,15 @@ test:
 about:
   home: http://zziplib.sourceforge.net/
   summary: The zziplib library is intentionally lightweight, it offers the ability to easily extract data from files archived in a single zip file.
-  license: GPL-2.0
-  license_family: GPL
-  license_file: COPYING.LIB
+  # See https://github.com/gdraheim/zziplib/blob/v0.13.69/README#L13-L18
+  license: LGPL-2.0-or-later.html OR MPL-1.1
+  license_file:
+    - docs/COPYING.LIB
+    - docs/COPYING.MPL
+    - docs/copying.htm
 
 extra:
   recipe-maintainers:
     - wolfv
     - lesteve
+    - traversaro
