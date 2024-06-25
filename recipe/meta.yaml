@@ -8,24 +8,19 @@ package:
 source:
   - url: https://github.com/gdraheim/{{ name }}/archive/v{{ version }}.tar.gz
     sha256: {{ sha256 }}
-  - path: CMakeLists.txt  # [win]
 
 build:
   number: 0
-  skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
 requirements:
   build:
-    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
-    - pkg-config
-    - autoconf  # [not win]
-    - cmake  # [win]
+    - cmake
     - python
-    - make
+    - ninja
   host:
     - zlib
 
