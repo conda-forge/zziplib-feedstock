@@ -1,34 +1,27 @@
-{% set name = 'zziplib' %}
-{% set version = '0.13.69' %}
-{% set sha256 = '846246d7cdeee405d8d21e2922c6e97f55f24ecbe3b6dcf5778073a88f120544' %}
+{% set version = "0.13.76" %}
+
 package:
-  name: {{ name }}
+  name: zziplib
   version: {{ version }}
 
 source:
-  - url: https://github.com/gdraheim/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: {{ sha256 }}
+  - url: https://github.com/gdraheim/zziplib/archive/v{{ version }}.tar.gz
+    sha256: 08b0e300126329c928a41b6d68e397379fad02469e34a0855d361929968ea4c0
     patches:
-      # python 2 only for docs building
-      - remove_docs_from_build.patch
-  - path: CMakeLists.txt  # [win]
+      - patch-coverage.patch
 
 build:
-  number: 2
-  skip: true  # [win and vc<14]
+  number: 0
   run_exports:
-    - {{ pin_subpackage(name, max_pin='x.x') }}
+    - {{ pin_subpackage("zziplib", max_pin='x.x') }}
 
 requirements:
   build:
-    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
-    - pkg-config
-    - autoconf  # [not win]
-    - cmake  # [win]
+    - cmake
     - python
-    - make
+    - ninja
   host:
     - zlib
 
@@ -49,7 +42,7 @@ about:
   license_file:
     - docs/COPYING.LIB
     - docs/COPYING.MPL
-    - docs/copying.htm
+    - docs/copying.htm.md
 
 extra:
   recipe-maintainers:
