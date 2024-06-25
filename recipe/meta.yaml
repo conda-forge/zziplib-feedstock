@@ -1,13 +1,14 @@
-{% set name = "zziplib" %}
 {% set version = "0.13.76" %}
-{% set sha256 = "08b0e300126329c928a41b6d68e397379fad02469e34a0855d361929968ea4c0" %}
+
 package:
-  name: {{ name }}
+  name: zziplib
   version: {{ version }}
 
 source:
-  - url: https://github.com/gdraheim/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: {{ sha256 }}
+  - url: https://github.com/gdraheim/zziplib/archive/v{{ version }}.tar.gz
+    sha256: 08b0e300126329c928a41b6d68e397379fad02469e34a0855d361929968ea4c0
+    patches:
+      - patch-coverage.patch
 
 build:
   number: 0
@@ -41,7 +42,7 @@ about:
   license_file:
     - docs/COPYING.LIB
     - docs/COPYING.MPL
-    - docs/copying.htm
+    - docs/copying.htm.md
 
 extra:
   recipe-maintainers:
