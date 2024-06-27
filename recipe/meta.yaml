@@ -21,6 +21,10 @@ requirements:
     - {{ stdlib('c') }}
     - cmake
     - ninja
+    # for testing
+    - python
+    - unzip
+    - zip
   host:
     - zlib
 
