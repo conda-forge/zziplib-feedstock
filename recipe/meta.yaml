@@ -1,17 +1,13 @@
 {% set name = "zziplib" %}
 {% set version = "0.13.77" %}
-{% set sha256 = "50e166e6a879c2bd723e60e482a91ec793a7362fa2d9c5fe556fb0e025810477" %}
+
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
   - url: https://github.com/gdraheim/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: {{ sha256 }}
-    patches:
-      # python 2 only for docs building
-      - remove_docs_from_build.patch
-  - path: CMakeLists.txt  # [win]
+    sha256: 50e166e6a879c2bd723e60e482a91ec793a7362fa2d9c5fe556fb0e025810477
 
 build:
   number: 0
@@ -21,14 +17,10 @@ build:
 
 requirements:
   build:
-    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
-    - pkg-config
-    - autoconf  # [not win]
-    - cmake  # [win]
-    - python
-    - make
+    - cmake
+    - ninja
   host:
     - zlib
 
