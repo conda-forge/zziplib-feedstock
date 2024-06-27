@@ -204,7 +204,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@lesteve](https://github.com/lesteve/)
 * [@traversaro](https://github.com/traversaro/)
 * [@wolfv](https://github.com/wolfv/)
 
