@@ -1,6 +1,7 @@
 # Get an updated config.sub and config.guess
-cp $BUILD_PREFIX/share/gnuconfig/config.* ./uses
-./configure --prefix=$PREFIX
+mkdir build && cd build
 
-make VERBOSE=1 -j${CPU_COUNT}
-make install
+cmake $SRC_DIR -GNinja ${CMAKE_ARGS} -DBUILD_SHARED_LIBS=ON
+
+ninja
+ninja install
